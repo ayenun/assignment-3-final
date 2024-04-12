@@ -2,8 +2,8 @@ version: 0.2
 
 env:
   variables:
-     AWS_DEFAULT_REGION: "US East-1"
-     IMAGE_REPO_NAME: "Naher-app"
+     AWS_DEFAULT_REGION: "us-east-1"
+     IMAGE_REPO_NAME: "assignment-3-naher-final"
      AWS_ACCOUNT_ID: "851725496132"
 
 phases:
@@ -27,6 +27,6 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
-      - printf '[{"name":"Naher-container","imageUri":"%s"}]' $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG > imagedefinitions.json
+      - printf '[{"name":"assignment-3-naher-final","imageUri":"%s"}]' $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG > imagedefinitions.json
 artifacts:
     files: imagedefinitions.json
